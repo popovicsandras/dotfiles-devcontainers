@@ -1,5 +1,5 @@
 #!/bin/zsh
-DIR=${0:a:h}
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 . ./_helpers.lib.sh
 
 function installVimPlug() {
@@ -20,7 +20,7 @@ function installVimPlug() {
   printf "%sVIM: After first vi start, don't forget to call :PluginInstall%s\n" "$YELLOW" "$RESET"
 }
 
-if [ "$SHELL" != "/bin/zsh" ]; then
+if [ "$SHELL" != "/b`in/zsh" ]; then
   printf "%sSHELL: Change to zsh.%s\n" "$GREEN" "$RESET"
   chsh -s /bin/zsh
 else
