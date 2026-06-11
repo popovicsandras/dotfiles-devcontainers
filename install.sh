@@ -27,6 +27,11 @@ function installSpaceshipPrompt() {
   printf "%sSPACESHIP: Spaceship prompt installed.%s\n" "$YELLOW" "$RESET"
 }
 
+function installPackages() {
+  "$DOTFILES_DIR/_apt.sh"
+}
+
+installPackages
 installSpaceshipPrompt
 installVimPlug
 

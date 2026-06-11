@@ -1,0 +1,8 @@
+# Filesystem utilities (see dotfiles/Brewfile)
+ripgrep
+silversearcher-ag
+rsync
+bat
+fzf
+jq
+mc
