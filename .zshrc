@@ -72,7 +72,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(git zsh-autosuggestions zsh-syntax-highlighting git node npm sudo docker docker-compose fzf)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z)
+plugins=(z zsh-autosuggestions zsh-syntax-highlighting git node npm sudo docker docker-compose fzf)
 
 source $ZSH/oh-my-zsh.sh
 

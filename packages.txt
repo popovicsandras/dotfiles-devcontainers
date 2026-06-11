@@ -3,6 +3,5 @@ ripgrep
 silversearcher-ag
 rsync
 bat
-fzf
 jq
 mc
