@@ -20,9 +20,16 @@ function installVimPlug() {
   printf "%sVIM: After first vi start, don't forget to call :PluginInstall%s\n" "$YELLOW" "$RESET"
 }
 
+function installSpaceshipPrompt() {
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+  printf "%sSPACESHIP: Spaceship prompt installed.%s\n" "$YELLOW" "$RESET"  
+}
+
+installSpaceshipPrompt
+installVimPlug
+
 for file in .aliases .curlrc .dotscripts .exports .vimrc .zshrc; do
   echo "Linking $file: $HOME/$file -> $DOTFILES_DIR/$file"
   ln -sf "$DOTFILES_DIR/$file" "$HOME/$file"
 done
-
-installVimPlug
