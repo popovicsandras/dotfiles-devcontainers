@@ -27,4 +27,9 @@ else
   printf "%sSHELL: Already zsh.%s\n" "$YELLOW" "$RESET"
 fi
 
+for file in .aliases .curlrc .dotscripts .exports .vimrc .zshrc; do
+  ln -sf "$DOTFILES_DIR/$file" "$HOME/$file"
+done
+
 installVimPlug
+
