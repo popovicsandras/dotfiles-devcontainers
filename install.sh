@@ -20,7 +20,7 @@ function installVimPlug() {
   printf "%sVIM: After first vi start, don't forget to call :PluginInstall%s\n" "$YELLOW" "$RESET"
 }
 
-if [ "$SHELL" != "/b`in/zsh" ]; then
+if [ "$SHELL" != "/bin/zsh" ]; then
   printf "%sSHELL: Change to zsh.%s\n" "$GREEN" "$RESET"
   chsh -s /bin/zsh
 else
