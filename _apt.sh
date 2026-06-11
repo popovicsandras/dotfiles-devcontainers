@@ -10,7 +10,7 @@ if ! command -v apt-get &>/dev/null; then
   exit 0
 fi
 
-packages=("${(@f)$(grep -v '^\s*\(#\|$)' "$PACKAGES_FILE")}")
+packages=("${(@f)$(grep -Ev '^#|^[[:space:]]*$' "$PACKAGES_FILE")}")
 
 if [ ${#packages[@]} -eq 0 ]; then
   exit 0
