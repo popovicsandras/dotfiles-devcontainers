@@ -21,9 +21,10 @@ function installVimPlug() {
 }
 
 function installSpaceshipPrompt() {
-  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/spaceship-prompt" --depth=1
-  ln -s "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-  printf "%sSPACESHIP: Spaceship prompt installed.%s\n" "$YELLOW" "$RESET"  
+  local zsh_custom="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$zsh_custom/themes/spaceship-prompt" --depth=1
+  ln -s "$zsh_custom/themes/spaceship-prompt/spaceship.zsh-theme" "$zsh_custom/themes/spaceship.zsh-theme"
+  printf "%sSPACESHIP: Spaceship prompt installed.%s\n" "$YELLOW" "$RESET"
 }
 
 installSpaceshipPrompt
