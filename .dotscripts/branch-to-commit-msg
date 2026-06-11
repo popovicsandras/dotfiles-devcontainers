@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Transform branch name to commit message format
+# Usage: branch-to-commit-msg <branch-name>
+# Example: branch-to-commit-msg "chore/DS-1150-migrate-adoption-sorting"
+# Output: "chore: DS-1150 Migrate adoption sorting"
+
+if [ -z "$1" ]; then
+    echo "Usage: branch-to-commit-msg <branch-name>" >&2
+    exit 1
+fi
+
+branch="$1"
+prefix=$(echo "$branch" | cut -d'/' -f1)
+rest=$(echo "$branch" | cut -d'/' -f2-)
+ticket=$(echo "$rest" | grep -oE '^[A-Z]+-[0-9]+')
+description=$(echo "$rest" | sed "s/^${ticket}-//" | sed 's/-/ /g' | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')
+
+echo "${prefix}: ${ticket} ${description}"
