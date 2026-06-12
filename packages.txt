@@ -5,3 +5,4 @@ rsync
 bat
 jq
 mc
+vim

@@ -17,7 +17,8 @@ function installVimPlug() {
     mkdir -p ~/.vim/undo
   fi
 
-  printf "%sVIM: After first vi start, don't forget to call :PluginInstall%s\n" "$YELLOW" "$RESET"
+  vim +PlugInstall +qall
+  # printf "%sVIM: After first vi start, don't forget to call :PluginInstall%s\n" "$YELLOW" "$RESET"
 }
 
 function installSpaceshipPrompt() {
