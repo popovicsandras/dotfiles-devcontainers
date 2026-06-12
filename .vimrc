@@ -103,7 +103,7 @@ endif
 
 call plug#begin()
 	" Themes
-	Plug 'arcticicestudio/nord-vim'
+	Plug 'rakr/vim-one'
 
 	" Plugins
 	Plug 'preservim/NERDTree'
@@ -154,7 +154,14 @@ let &t_SI.="\e[5 q"
 let &t_SR.="\e[4 q"
 let &t_EI.="\e[2 q"
 
-colorscheme nord
+if !empty(globpath(&rtp, 'colors/one.vim'))
+	if has('termguicolors')
+		set termguicolors
+	endif
+	set background=dark
+	colorscheme one
+	let g:airline_theme='one'
+endif
 
 map <F1> :NERDTreeFocus<CR>
 map <C-.> :NERDTreeFind<CR>
