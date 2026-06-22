@@ -23,3 +23,7 @@ export LESS_TERMCAP_md="${yellow}";
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
+# Dev container persistent history  
+export HISTFILE=/commandhistory/.zsh_history
+export HISTSIZE=30000
+export SAVEHIST=30000
