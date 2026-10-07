@@ -10,9 +10,18 @@ function linkDotfiles() {
 }
 
 function installVimPlug() {
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   mkdir -p ~/.vim/{backups,swaps,undo}
-  vim +PlugInstall +qall
+
+  if ! curl -fsSLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim; then
+    printf "%sVIM: vim-plug download failed; skipping plugin install. Run :PlugInstall later.%s\n" "$YELLOW" "$RESET" >&2
+    return 0
+  fi
+
+  # Batch (Ex) mode: no terminal needed, no "Press ENTER" prompt, never waits for input.
+  if ! timeout 300 vim -es -u ~/.vimrc -i NONE -c "PlugInstall" -c "qa" </dev/null; then
+    printf "%sVIM: plugin install reported errors; run :PlugInstall inside vim to retry.%s\n" "$YELLOW" "$RESET" >&2
+  fi
 }
 
 function installSpaceshipPrompt() {
